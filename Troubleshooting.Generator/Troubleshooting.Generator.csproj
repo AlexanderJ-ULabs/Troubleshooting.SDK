@@ -1,0 +1,32 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.0</TargetFramework>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DebugType>full</DebugType>
+    <DebugSymbols>true</DebugSymbols>
+  </PropertyGroup>
+
+  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
+    <Exec Command="xcopy /s /y $(OutDir)Troubleshooting.Generator.* $(SolutionDir)binstash" />
+  </Target>
+
+  <ItemGroup>
+    <PackageReference Include="PostSharp" Version="5.0.37" />
+    <PackageReference Include="PostSharp.Patterns.Model" Version="5.0.37" />
+    <PackageReference Include="PostSharp.Patterns.Threading" Version="5.0.37" />
+    <PackageReference Include="Serilog.AspNetCore" Version="2.1.0" />
+    <PackageReference Include="Serilog.Sinks.Console" Version="3.1.1" />
+    <PackageReference Include="Serilog.Sinks.Literate" Version="3.0.0" />
+    <PackageReference Include="Serilog.Sinks.RollingFile" Version="3.3.0" />
+    <PackageReference Include="System.Composition.Runtime" Version="1.1.0" />
+    <PackageReference Include="System.Composition.TypedParts" Version="1.1.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Troubleshooting.Common\Troubleshooting.Common.csproj" />
+  </ItemGroup>
+
+</Project>
