@@ -11,7 +11,6 @@
 #region using
 
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Composition.Hosting;
 using System.Dynamic;
@@ -21,12 +20,9 @@ using System.Reflection;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
-using Microsoft.Extensions.Configuration;
 using PostSharp.Patterns.Contracts;
 using PostSharp.Patterns.Threading;
-
 using Serilog;
-
 using Troubleshooting.Common.Services;
 
 #endregion
@@ -38,6 +34,50 @@ namespace Troubleshooting.SDK.Services
     /// </summary>
     internal class Provider : ICoreService
     {
+        #region Constructor
+
+        /// <summary>
+        ///     Constructs the Provider and enables message tracing to a <see cref="Console" /> type host.
+        /// </summary>
+        /// <param name="log">Conforms to the <see cref="ILogger" /> interface and will be passed to all services.</param>
+        internal Provider(ILogger log)
+        {
+            Logger = log;
+
+            // Enable message output to a console type host.
+            EnableMessageTracing();
+        }
+
+        #endregion
+
+        #region Service Assembly Loading
+
+        /// <summary>
+        ///     A method to scan the contents of the service provider's directory to locate available services.
+        /// </summary>
+        /// <returns></returns>
+        private IEnumerable<Assembly> LoadServiceAssemblies()
+        {
+            var servicePath = Path.GetDirectoryName(provider.Location);
+
+            //  Include all sub-assemblies but exclude SDK and Topics.
+            var assemblies =
+                Directory.GetFiles(servicePath, "Troubleshooting.*.dll", SearchOption.AllDirectories)
+                    .Where(x => Regex.IsMatch(x, @"Troubleshooting\.(?!SDK|Common)\w*\.dll",
+                        RegexOptions.Compiled | RegexOptions.IgnoreCase));
+
+            foreach (var asm in assemblies.Select(Assembly.LoadFrom))
+            {
+                if (!asm.GetName().GetPublicKeyToken().SequenceEqual(OfficialKeyToken))
+                    Logger.Fatal("kill-program: security violation detected.");
+
+                Logger.Information("load-microservice: {0} successfully added.", asm.GetName().Name);
+                yield return asm;
+            }
+        }
+
+        #endregion
+
         #region Properties & Fields
 
         /// <summary>
@@ -48,7 +88,7 @@ namespace Troubleshooting.SDK.Services
         /// <summary>
         ///     The strong name key token identifying programs which are signed by us.
         /// </summary>
-        private static readonly byte[] OfficialKeyToken = { 0x2E, 0xC2, 0x5D, 0x45, 0x53, 0xBD, 0x53, 0xDF };
+        private static readonly byte[] OfficialKeyToken = {0x2E, 0xC2, 0x5D, 0x45, 0x53, 0xBD, 0x53, 0xDF};
 
         /// <summary>
         ///     A list of all services located by this provider.
@@ -60,26 +100,10 @@ namespace Troubleshooting.SDK.Services
 
         #endregion
 
-        #region Constructor
-
-        /// <summary>
-        ///     Constructs the Provider and enables message tracing to a <see cref="Console"/> type host.
-        /// </summary>
-        /// <param name="log">Conforms to the <see cref="ILogger"/> interface and will be passed to all services.</param>
-        internal Provider(ILogger log)
-        {
-            Logger = log;
-
-            // Enable message output to a console type host.
-            EnableMessageTracing();
-        }
-
-        #endregion
-
         #region Interface Methods
 
         /// <inheritdoc />
-        public dynamic CreateMessage([System.ComponentModel.DataAnnotations.Required]string topic)
+        public dynamic CreateMessage([System.ComponentModel.DataAnnotations.Required] string topic)
         {
             dynamic msg = new ExpandoObject();
             msg.Timestamp = DateTime.Now;
@@ -108,19 +132,18 @@ namespace Troubleshooting.SDK.Services
         internal void Stop()
         {
             //  Stop printing to the console.
-            this.DisableMessageTracing();
+            DisableMessageTracing();
         }
 
         /// <summary>
-        ///     Responsible for calling <see cref="IService.Initialize"/> on the services and passing in a reference to this provider.
+        ///     Responsible for calling <see cref="IService.Initialize" /> on the services and passing in a reference to this
+        ///     provider.
         /// </summary>
         internal void StartServices()
         {
-            foreach (IService serv in this.Services)
-            {
+            foreach (var serv in Services)
                 if (!serv.Initialize(this).Result)
                     Logger.Fatal("kill-service: {0} failed to initialize.", serv.Name);
-            }
         }
 
         /// <summary>
@@ -128,41 +151,15 @@ namespace Troubleshooting.SDK.Services
         /// </summary>
         internal void ConfigureServices()
         {
-            ContainerConfiguration asmConfig = new ContainerConfiguration().WithAssemblies(this.LoadServiceAssemblies());
+            var asmConfig = new ContainerConfiguration().WithAssemblies(LoadServiceAssemblies());
 
-            using (CompositionHost container = asmConfig.CreateContainer())
-                this.Services = container.GetExports<IService>();
-
-            foreach (IService serv in this.Services)
-                Logger.Information("Loaded service: {0}", serv.Name);
-        }
-
-        #endregion
-
-        #region Service Assembly Loading
-
-        /// <summary>
-        ///     A method to scan the contents of the service provider's directory to locate available services.
-        /// </summary>
-        /// <returns></returns>
-        private IEnumerable<Assembly> LoadServiceAssemblies()
-        {
-            var servicePath = Path.GetDirectoryName(provider.Location);
-
-            //  Include all sub-assemblies but exclude SDK and Topics.
-            var assemblies =
-                Directory.GetFiles(servicePath, "Troubleshooting.*.dll", SearchOption.AllDirectories)
-                    .Where(x => Regex.IsMatch(x, @"Troubleshooting\.(?!SDK|Common)\w*\.dll",
-                        RegexOptions.Compiled | RegexOptions.IgnoreCase));
-
-            foreach (Assembly asm in assemblies.Select(Assembly.LoadFrom))
+            using (var container = asmConfig.CreateContainer())
             {
-                if (!asm.GetName().GetPublicKeyToken().SequenceEqual(OfficialKeyToken))
-                    Logger.Fatal("kill-program: security violation detected.");
-
-                Logger.Information("load-microservice: {0} successfully added.", asm.GetName().Name);
-                yield return asm;
+                Services = container.GetExports<IService>();
             }
+
+            foreach (var serv in Services)
+                Logger.Information("Loaded service: {0}", serv.Name);
         }
 
         #endregion
@@ -182,16 +179,16 @@ namespace Troubleshooting.SDK.Services
         /// <summary>
         ///     Invokes the message chain with a message wrapped in potential actions.
         /// </summary>
-        /// <param name="message">A dynamic message created by <see cref="ICoreService.CreateMessage"/> method.</param>
+        /// <param name="message">A dynamic message created by <see cref="ICoreService.CreateMessage" /> method.</param>
         /// <returns></returns>
         private Task[] PostMessageToServices(dynamic message)
         {
             // Invoke the message chain.
-            this.MessageChain?.Invoke(message);
+            MessageChain?.Invoke(message);
 
-            List<Task> tasks = new List<Task>();
+            var tasks = new List<Task>();
 
-            foreach (IService serv in this.Services)
+            foreach (var serv in Services)
                 tasks.Add(serv.HandleMessage(message));
 
             return tasks.ToArray();
@@ -202,26 +199,28 @@ namespace Troubleshooting.SDK.Services
         #region Message Tracing
 
         /// <summary>
-        ///     Adds the LogMessage action to <see cref="MessageChain"/> in order to print messages to a host of type <see cref="Console"/>.
+        ///     Adds the LogMessage action to <see cref="MessageChain" /> in order to print messages to a host of type
+        ///     <see cref="Console" />.
         /// </summary>
         private void EnableMessageTracing()
         {
             //  Store a reference to this delegate for removal later.
-            cachedHandler = (message) => this.LogMessage(message);
-            this.MessageChain += this.cachedHandler;
+            cachedHandler = message => this.LogMessage(message);
+            MessageChain += cachedHandler;
         }
 
         /// <summary>
-        ///     Removes the LogMessage action from <see cref="MessageChain"/>.
+        ///     Removes the LogMessage action from <see cref="MessageChain" />.
         /// </summary>
         private void DisableMessageTracing()
         {
             //  Remove using the handler as a reference to the original delegate.
-            this.MessageChain -= this.cachedHandler;
+            MessageChain -= cachedHandler;
         }
 
         /// <summary>
-        ///     Wraps a message in a string builder and outputs it to the <see cref="Console"/> type host before sending it out to all Actors.
+        ///     Wraps a message in a string builder and outputs it to the <see cref="Console" /> type host before sending it out to
+        ///     all Actors.
         /// </summary>
         /// <param name="message"></param>
         private void LogMessage(dynamic message)
@@ -229,15 +228,15 @@ namespace Troubleshooting.SDK.Services
             var entry = new StringBuilder($"{message.Topic} {{");
 
             // Casting the properties of message for the sake of revealing a Count property.
-            var props = new KeyValuePair <string, object>[((IDictionary <string, object>) message).Count];
+            var props = new KeyValuePair<string, object>[((IDictionary<string, object>) message).Count];
 
             // Append the properties
             ((IDictionary<string, object>) message).CopyTo(props, 0);
 
             // Append the props except for the basic ones using JSON syntax.
             var subsequent = false;
-            foreach (KeyValuePair<string, object> prop in props
-                .Where(x => (x.Key != "Timestamp") && (x.Key != "Topic")))
+            foreach (var prop in props
+                .Where(x => x.Key != "Timestamp" && x.Key != "Topic"))
             {
                 if (subsequent)
                     entry.Append(", ");
@@ -249,14 +248,16 @@ namespace Troubleshooting.SDK.Services
                         entry.Append($"{prop.Key}: ");
 
                         if (arr.Length == 0)
+                        {
                             entry.Append("[]");
+                        }
                         else
                         {
                             var subsqarr = false;
 
                             entry.Append("[");
 
-                            foreach (object o in arr)
+                            foreach (var o in arr)
                             {
                                 if (subsqarr)
                                     entry.Append(", ");
@@ -288,6 +289,5 @@ namespace Troubleshooting.SDK.Services
         }
 
         #endregion
-
     }
 }
