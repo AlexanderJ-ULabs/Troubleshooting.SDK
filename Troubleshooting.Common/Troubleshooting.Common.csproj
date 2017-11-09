@@ -10,4 +10,8 @@
     <PackageReference Include="Serilog.AspNetCore" Version="2.1.0" />
   </ItemGroup>
 
+  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
+    <Exec Command="xcopy /s /y $(OutDir)Troubleshooting.Common.* $(SolutionDir)binstash" />
+  </Target>
+
 </Project>
