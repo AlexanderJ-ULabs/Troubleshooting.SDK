@@ -33,20 +33,29 @@ namespace Troubleshooting.Calculator
     /// <summary>
     ///     This service exists to run simple calculation requests received from other services.
     /// </summary>
-    [Export (typeof (IService))]
+    [Export(typeof(IService))]
     [Actor]
     public class CalculatorService : IService
     {
+        #region Properties & Fields
+
         /// <summary>
-        ///     Private backreference to the service provider.
+        ///     Private reference back to the service provider.
         /// </summary>
         [Reference]
         private ICoreService provider;
 
+        /// <summary>
+        ///     Private reference back to the logger.
+        /// </summary>
         [Reference] private ILogger log { get; set; }
 
         /// <inheritdoc />
         public string Name => "CalculatorService";
+
+        #endregion
+
+        #region Public Entry-Point Methods
 
         /// <inheritdoc />
         [Reentrant]
@@ -73,6 +82,10 @@ namespace Troubleshooting.Calculator
             }
         }
 
+        #endregion
+
+        #region Private Methods
+
         /// <summary>
         ///     Just a method to make sure that the main loop is working.
         /// </summary>
@@ -82,5 +95,7 @@ namespace Troubleshooting.Calculator
             var msg = this.provider.CreateMessage("Calculator is still alive.");
             await this.provider.PostMessage(msg);
         }
+
+        #endregion
     }
 }
