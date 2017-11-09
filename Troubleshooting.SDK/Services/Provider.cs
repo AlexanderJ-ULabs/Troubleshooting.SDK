@@ -68,6 +68,7 @@ namespace Troubleshooting.SDK.Services
 
             foreach (var asm in assemblies.Select(Assembly.LoadFrom))
             {
+                //  If the assembly is not signed with our key then sound the figurative alarm.
                 if (!asm.GetName().GetPublicKeyToken().SequenceEqual(OfficialKeyToken))
                     Logger.Fatal("kill-program: security violation detected.");
 
