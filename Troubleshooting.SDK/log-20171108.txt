@@ -1,0 +1,124 @@
+2017-11-08 20:17:10.834 -05:00 [Information] load-microservice: "Troubleshooting.Calculator" successfully added.
+2017-11-08 20:17:11.230 -05:00 [Information] load-microservice: "Troubleshooting.Common" successfully added.
+2017-11-08 20:17:11.232 -05:00 [Information] load-microservice: "Troubleshooting.SDK" successfully added.
+2017-11-08 20:17:12.159 -05:00 [Information] Loaded service: "CalculatorService"
+2017-11-08 20:19:31.050 -05:00 [Information] load-microservice: "Troubleshooting.Calculator" successfully added.
+2017-11-08 20:19:31.137 -05:00 [Information] load-microservice: "Troubleshooting.Common" successfully added.
+2017-11-08 20:19:31.351 -05:00 [Information] Loaded service: "CalculatorService"
+2017-11-08 20:19:49.575 -05:00 [Information] load-microservice: "Troubleshooting.Calculator" successfully added.
+2017-11-08 20:19:49.961 -05:00 [Information] Loaded service: "CalculatorService"
+2017-11-08 20:23:19.029 -05:00 [Information] load-microservice: "Troubleshooting.Calculator" successfully added.
+2017-11-08 20:23:19.185 -05:00 [Information] load-microservice: "Troubleshooting.Common" successfully added.
+2017-11-08 20:23:19.395 -05:00 [Information] Loaded service: "CalculatorService"
+2017-11-08 20:32:51.539 -05:00 [Information] load-microservice: "Troubleshooting.Calculator" successfully added.
+2017-11-08 20:32:51.635 -05:00 [Information] load-microservice: "Troubleshooting.Common" successfully added.
+2017-11-08 20:32:51.840 -05:00 [Information] Loaded service: "CalculatorService"
+2017-11-08 20:33:22.080 -05:00 [Information] load-microservice: "Troubleshooting.Calculator" successfully added.
+2017-11-08 20:33:22.177 -05:00 [Information] load-microservice: "Troubleshooting.Common" successfully added.
+2017-11-08 20:33:22.424 -05:00 [Information] Loaded service: "CalculatorService"
+2017-11-08 20:33:45.253 -05:00 [Information] load-microservice: "Troubleshooting.Calculator" successfully added.
+2017-11-08 20:33:45.345 -05:00 [Information] load-microservice: "Troubleshooting.Common" successfully added.
+2017-11-08 20:33:45.563 -05:00 [Information] Loaded service: "CalculatorService"
+2017-11-08 20:33:58.855 -05:00 [Information] load-microservice: "Troubleshooting.Calculator" successfully added.
+2017-11-08 20:33:58.945 -05:00 [Information] load-microservice: "Troubleshooting.Common" successfully added.
+2017-11-08 20:33:59.149 -05:00 [Information] Loaded service: "CalculatorService"
+2017-11-08 20:35:44.217 -05:00 [Information] load-microservice: "Troubleshooting.Calculator" successfully added.
+2017-11-08 20:35:44.294 -05:00 [Information] load-microservice: "Troubleshooting.Common" successfully added.
+2017-11-08 20:35:44.494 -05:00 [Information] Loaded service: "CalculatorService"
+2017-11-08 20:35:54.546 -05:00 [Information] load-microservice: "Troubleshooting.Calculator" successfully added.
+2017-11-08 20:35:54.625 -05:00 [Information] load-microservice: "Troubleshooting.Common" successfully added.
+2017-11-08 20:35:54.836 -05:00 [Information] Loaded service: "CalculatorService"
+2017-11-08 20:36:40.784 -05:00 [Information] load-microservice: "Troubleshooting.Calculator" successfully added.
+2017-11-08 20:36:40.864 -05:00 [Information] load-microservice: "Troubleshooting.Common" successfully added.
+2017-11-08 20:36:41.055 -05:00 [Information] Loaded service: "CalculatorService"
+2017-11-08 20:37:32.087 -05:00 [Information] load-microservice: "Troubleshooting.Calculator" successfully added.
+2017-11-08 20:37:32.199 -05:00 [Information] load-microservice: "Troubleshooting.Common" successfully added.
+2017-11-08 20:37:32.399 -05:00 [Information] Loaded service: "CalculatorService"
+2017-11-08 20:37:35.762 -05:00 [Debug] hello {}
+2017-11-08 20:37:35.780 -05:00 [Information] Hello from the calculator!
+2017-11-08 20:39:35.624 -05:00 [Information] load-microservice: "Troubleshooting.Calculator" successfully added.
+2017-11-08 20:39:35.707 -05:00 [Information] load-microservice: "Troubleshooting.Common" successfully added.
+2017-11-08 20:39:35.912 -05:00 [Information] Loaded service: "CalculatorService"
+2017-11-08 20:39:35.988 -05:00 [Debug] hello {}
+2017-11-08 20:39:36.005 -05:00 [Information] Hello from the calculator!
+2017-11-08 20:42:26.212 -05:00 [Information] load-microservice: "Troubleshooting.Calculator" successfully added.
+2017-11-08 20:42:26.297 -05:00 [Information] load-microservice: "Troubleshooting.Common" successfully added.
+2017-11-08 20:42:26.521 -05:00 [Information] Loaded service: "CalculatorService"
+2017-11-08 20:42:26.609 -05:00 [Debug] hello {}
+2017-11-08 20:42:26.625 -05:00 [Information] Hello from the calculator!
+2017-11-08 20:42:54.143 -05:00 [Information] load-microservice: "Troubleshooting.Calculator" successfully added.
+2017-11-08 20:42:54.237 -05:00 [Information] load-microservice: "Troubleshooting.Common" successfully added.
+2017-11-08 20:42:54.449 -05:00 [Information] Loaded service: "CalculatorService"
+2017-11-08 20:42:54.534 -05:00 [Debug] hello {}
+2017-11-08 20:42:54.541 -05:00 [Information] Hello from the calculator!
+2017-11-08 20:47:24.855 -05:00 [Information] load-microservice: "Troubleshooting.Calculator" successfully added.
+2017-11-08 20:47:24.954 -05:00 [Information] load-microservice: "Troubleshooting.Common" successfully added.
+2017-11-08 20:47:25.145 -05:00 [Information] Loaded service: "CalculatorService"
+2017-11-08 20:47:25.226 -05:00 [Debug] hello {}
+2017-11-08 20:47:25.233 -05:00 [Information] Hello from the calculator!
+2017-11-08 20:48:07.440 -05:00 [Information] load-microservice: "Troubleshooting.Calculator" successfully added.
+2017-11-08 20:48:07.529 -05:00 [Information] load-microservice: "Troubleshooting.Common" successfully added.
+2017-11-08 20:48:07.737 -05:00 [Information] Loaded service: "CalculatorService"
+2017-11-08 20:48:07.817 -05:00 [Debug] hello {}
+2017-11-08 20:48:07.823 -05:00 [Information] Hello from the calculator!
+2017-11-08 20:48:08.328 -05:00 [Debug] Calculator is still alive. {}
+2017-11-08 20:48:24.956 -05:00 [Information] load-microservice: "Troubleshooting.Calculator" successfully added.
+2017-11-08 20:48:25.039 -05:00 [Information] load-microservice: "Troubleshooting.Common" successfully added.
+2017-11-08 20:48:25.247 -05:00 [Information] Loaded service: "CalculatorService"
+2017-11-08 20:48:25.324 -05:00 [Debug] hello {}
+2017-11-08 20:48:25.330 -05:00 [Information] Hello from the calculator!
+2017-11-08 20:48:25.841 -05:00 [Debug] Calculator is still alive. {}
+2017-11-08 20:48:25.846 -05:00 [Debug] Calculator is still alive. {}
+2017-11-08 20:48:25.847 -05:00 [Debug] Calculator is still alive. {}
+2017-11-08 20:48:25.848 -05:00 [Debug] Calculator is still alive. {}
+2017-11-08 20:48:25.848 -05:00 [Debug] Calculator is still alive. {}
+2017-11-08 20:48:25.848 -05:00 [Debug] Calculator is still alive. {}
+2017-11-08 20:50:16.284 -05:00 [Information] load-microservice: "Troubleshooting.Calculator" successfully added.
+2017-11-08 20:50:16.365 -05:00 [Information] load-microservice: "Troubleshooting.Common" successfully added.
+2017-11-08 20:50:16.559 -05:00 [Information] Loaded service: "CalculatorService"
+2017-11-08 20:50:16.642 -05:00 [Debug] hello {}
+2017-11-08 20:50:16.648 -05:00 [Information] Hello from the calculator!
+2017-11-08 20:50:21.655 -05:00 [Debug] Calculator is still alive. {}
+2017-11-08 20:50:45.136 -05:00 [Information] load-microservice: "Troubleshooting.Calculator" successfully added.
+2017-11-08 20:50:45.285 -05:00 [Information] load-microservice: "Troubleshooting.Common" successfully added.
+2017-11-08 20:50:45.504 -05:00 [Information] Loaded service: "CalculatorService"
+2017-11-08 20:50:45.582 -05:00 [Debug] hello {}
+2017-11-08 20:50:45.587 -05:00 [Information] Hello from the calculator!
+2017-11-08 20:52:04.552 -05:00 [Information] load-microservice: "Troubleshooting.Calculator" successfully added.
+2017-11-08 20:52:04.655 -05:00 [Information] load-microservice: "Troubleshooting.Common" successfully added.
+2017-11-08 20:52:04.857 -05:00 [Information] Loaded service: "CalculatorService"
+2017-11-08 20:52:04.931 -05:00 [Debug] hello {}
+2017-11-08 20:52:04.938 -05:00 [Information] Hello from the calculator!
+2017-11-08 20:52:09.944 -05:00 [Debug] Calculator is still alive. {}
+2017-11-08 20:52:41.662 -05:00 [Information] load-microservice: "Troubleshooting.Calculator" successfully added.
+2017-11-08 20:52:41.769 -05:00 [Information] load-microservice: "Troubleshooting.Common" successfully added.
+2017-11-08 20:52:41.974 -05:00 [Information] Loaded service: "CalculatorService"
+2017-11-08 20:52:42.046 -05:00 [Debug] hello {}
+2017-11-08 20:52:42.052 -05:00 [Information] Hello from the calculator!
+2017-11-08 20:52:42.055 -05:00 [Information] You've now entered the main loop. Press CTRL+C or issue a cancel command to exit.
+2017-11-08 20:52:47.057 -05:00 [Debug] Calculator is still alive. {}
+2017-11-08 20:52:56.306 -05:00 [Information] load-microservice: "Troubleshooting.Calculator" successfully added.
+2017-11-08 20:52:56.389 -05:00 [Information] load-microservice: "Troubleshooting.Common" successfully added.
+2017-11-08 20:52:56.590 -05:00 [Information] Loaded service: "CalculatorService"
+2017-11-08 20:52:56.670 -05:00 [Debug] hello {}
+2017-11-08 20:52:56.677 -05:00 [Information] Hello from the calculator!
+2017-11-08 20:52:56.680 -05:00 [Debug] You've now entered the main loop. Press CTRL+C or issue a cancel command to exit.
+2017-11-08 20:53:01.682 -05:00 [Debug] Calculator is still alive. {}
+2017-11-08 21:04:25.750 -05:00 [Information] load-microservice: "Troubleshooting.Calculator" successfully added.
+2017-11-08 21:04:25.831 -05:00 [Information] load-microservice: "Troubleshooting.Common" successfully added.
+2017-11-08 21:04:26.021 -05:00 [Information] Loaded service: "CalculatorService"
+2017-11-08 21:04:26.095 -05:00 [Debug] hello {}
+2017-11-08 21:04:26.102 -05:00 [Information] Hello from the calculator!
+2017-11-08 21:04:26.105 -05:00 [Debug] You've now entered the main loop. Press CTRL+C or issue a cancel command to exit.
+2017-11-08 21:04:31.107 -05:00 [Debug] Calculator is still alive. {}
+2017-11-08 21:05:02.201 -05:00 [Information] load-microservice: "Troubleshooting.Calculator" successfully added.
+2017-11-08 21:05:02.490 -05:00 [Information] Loaded service: "CalculatorService"
+2017-11-08 21:05:02.565 -05:00 [Debug] hello {}
+2017-11-08 21:05:02.572 -05:00 [Information] Hello from the calculator!
+2017-11-08 21:05:02.575 -05:00 [Debug] You've now entered the main loop. Press CTRL+C or issue a cancel command to exit.
+2017-11-08 21:05:07.577 -05:00 [Debug] Calculator is still alive. {}
+2017-11-08 21:28:24.602 -05:00 [Information] load-microservice: "Troubleshooting.Calculator" successfully added.
+2017-11-08 21:28:24.892 -05:00 [Information] Loaded service: "CalculatorService"
+2017-11-08 21:28:24.966 -05:00 [Debug] hello {}
+2017-11-08 21:28:24.972 -05:00 [Information] Hello from the calculator!
+2017-11-08 21:28:24.974 -05:00 [Debug] You've now entered the main loop. Press CTRL+C or issue a cancel command to exit.
