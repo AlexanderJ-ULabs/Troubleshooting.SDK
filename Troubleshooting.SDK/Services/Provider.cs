@@ -38,6 +38,8 @@ namespace Troubleshooting.SDK.Services
     /// </summary>
     internal class Provider : ICoreService
     {
+        #region Properties & Fields
+
         /// <summary>
         ///     Get the assembly so it can be reflected upon.
         /// </summary>
@@ -56,6 +58,10 @@ namespace Troubleshooting.SDK.Services
         /// <inheritdoc />
         public ILogger Logger { get; set; }
 
+        #endregion
+
+        #region Constructor
+
         /// <summary>
         ///     Constructs the Provider and enables message tracing to a <see cref="Console"/> type host.
         /// </summary>
@@ -67,6 +73,34 @@ namespace Troubleshooting.SDK.Services
             // Enable message output to a console type host.
             EnableMessageTracing();
         }
+
+        #endregion
+
+        #region Interface Methods
+
+        /// <inheritdoc />
+        public dynamic CreateMessage([System.ComponentModel.DataAnnotations.Required]string topic)
+        {
+            dynamic msg = new ExpandoObject();
+            msg.Timestamp = DateTime.Now;
+            msg.Topic = topic;
+            return msg;
+        }
+
+        /// <inheritdoc />
+        [ExplicitlySynchronized]
+        public Task PostMessage([NotNull] dynamic message)
+        {
+            Task[] tl = this.PostMessageToServices(message);
+
+            Task.WaitAll(tl);
+
+            return Task.CompletedTask;
+        }
+
+        #endregion
+
+        #region Local Assembly Methods
 
         /// <summary>
         ///     Issue stop procedures to services.
@@ -102,7 +136,11 @@ namespace Troubleshooting.SDK.Services
             foreach (IService serv in this.Services)
                 Logger.Information("Loaded service: {0}", serv.Name);
         }
-        
+
+        #endregion
+
+        #region Service Assembly Loading
+
         /// <summary>
         ///     A method to scan the contents of the service provider's directory to locate available services.
         /// </summary>
@@ -127,25 +165,9 @@ namespace Troubleshooting.SDK.Services
             }
         }
 
-        /// <inheritdoc />
-        public dynamic CreateMessage([System.ComponentModel.DataAnnotations.Required]string topic)
-        {
-            dynamic msg = new ExpandoObject();
-            msg.Timestamp = DateTime.Now;
-            msg.Topic = topic;
-            return msg;
-        }
+        #endregion
 
-        /// <inheritdoc />
-        [ExplicitlySynchronized]
-        public Task PostMessage([NotNull] dynamic message)
-        {
-            Task[] tl = this.PostMessageToServices(message);
-
-            Task.WaitAll(tl);
-
-            return Task.CompletedTask;
-        }
+        #region Actor Message Handling
 
         /// <summary>
         ///     Allows actions to be performed on the message chain.
@@ -174,6 +196,10 @@ namespace Troubleshooting.SDK.Services
 
             return tasks.ToArray();
         }
+
+        #endregion
+
+        #region Message Tracing
 
         /// <summary>
         ///     Adds the LogMessage action to <see cref="MessageChain"/> in order to print messages to a host of type <see cref="Console"/>.
@@ -260,6 +286,8 @@ namespace Troubleshooting.SDK.Services
             //  Post message to the general log.
             Logger.Debug(entry.ToString());
         }
+
+        #endregion
 
     }
 }
