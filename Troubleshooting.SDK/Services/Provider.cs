@@ -60,7 +60,7 @@ namespace Troubleshooting.SDK.Services
         {
             var servicePath = Path.GetDirectoryName(provider.Location);
 
-            //  Include all sub-assemblies but exclude SDK and Topics.
+            //  Include all sub-assemblies but exclude SDK and Common.
             var assemblies =
                 Directory.GetFiles(servicePath, "Troubleshooting.*.dll", SearchOption.AllDirectories)
                     .Where(x => Regex.IsMatch(x, @"Troubleshooting\.(?!SDK|Common)\w*\.dll",
@@ -241,6 +241,7 @@ namespace Troubleshooting.SDK.Services
                 if (subsequent)
                     entry.Append(", ");
 
+                //  Some pattern matching to handle value conversion.
                 switch (prop.Value)
                 {
                     case Array arr:
