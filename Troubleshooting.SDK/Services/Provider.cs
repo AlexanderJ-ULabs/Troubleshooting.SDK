@@ -72,6 +72,7 @@ namespace Troubleshooting.SDK.Services
                 if (!asm.GetName().GetPublicKeyToken().SequenceEqual(OfficialKeyToken))
                     Logger.Fatal("kill-program: security violation detected.");
 
+                //  Stand down boys, it's one of ours.
                 Logger.Information("load-microservice: {0} successfully added.", asm.GetName().Name);
                 yield return asm;
             }
