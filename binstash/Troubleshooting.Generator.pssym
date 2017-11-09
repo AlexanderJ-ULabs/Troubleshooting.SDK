@@ -1,11 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Symbols LinesOfCode="7" PostSharpLinesOfCode="0" EnhancedTypesCount="1" SchemaVersion="1" PostSharpVersion="5.0.37.0" xmlns="http://schemas.postsharp.org/2.0/symbols">
-  <Evolution Source="#1=F:[Troubleshooting.Calculator]Troubleshooting.Calculator.CalculatorService::provider" Target="#2=F:[Troubleshooting.Calculator]Troubleshooting.Calculator.CalculatorService::&lt;provider&gt;k__OriginalField" />
-  <Evolution Source="#2" Target="#3=P:[Troubleshooting.Calculator]Troubleshooting.Calculator.CalculatorService::provider()" />
-  <Evolution Source="#4=F:[Troubleshooting.Calculator]Troubleshooting.Calculator.CalculatorService::&lt;log&gt;k__BackingField" Target="#5=F:[Troubleshooting.Calculator]Troubleshooting.Calculator.CalculatorService::&lt;log&gt;k__OriginalField" />
-  <Evolution Source="#5" Target="#6=P:[Troubleshooting.Calculator]Troubleshooting.Calculator.CalculatorService::{log}k__BackingField()" />
+  <Evolution Source="#1=F:[Troubleshooting.Generator]Troubleshooting.Generator.GeneratorService::provider" Target="#2=F:[Troubleshooting.Generator]Troubleshooting.Generator.GeneratorService::&lt;provider&gt;k__OriginalField" />
+  <Evolution Source="#2" Target="#3=P:[Troubleshooting.Generator]Troubleshooting.Generator.GeneratorService::provider()" />
+  <Evolution Source="#4=F:[Troubleshooting.Generator]Troubleshooting.Generator.GeneratorService::&lt;log&gt;k__BackingField" Target="#5=F:[Troubleshooting.Generator]Troubleshooting.Generator.GeneratorService::&lt;log&gt;k__OriginalField" />
+  <Evolution Source="#5" Target="#6=P:[Troubleshooting.Generator]Troubleshooting.Generator.GeneratorService::{log}k__BackingField()" />
   <Class Class="#7=T:[PostSharp.Patterns.Threading]PostSharp.Patterns.Threading.ActorAttribute">
-    <Instance Declaration="#8=T:[Troubleshooting.Calculator]Troubleshooting.Calculator.CalculatorService" Id="df83f64744cf0b93">
+    <Instance Declaration="#8=T:[Troubleshooting.Generator]Troubleshooting.Generator.GeneratorService" Id="974e0ef16c3d2ace">
       <Target>
         <JoinPoint Advising="#7" Description="#9=Overrides method OnChildAttached" Ordinal="8" LinesAvoided="0" />
         <JoinPoint Advising="#7" Description="#10=Introduces method __GetThreadAwareImpl" Ordinal="9" LinesAvoided="0" />
@@ -30,7 +30,7 @@
         <JoinPoint Description="#22=Introduces method OnAncestorChanged" Ordinal="5" LinesAvoided="0" />
         <JoinPoint Description="#23=Introduces method OnParentChanged" Ordinal="6" LinesAvoided="0" />
         <JoinPoint Description="#24=Introduces interface(s) IAttachable, IAggregatable" Ordinal="7" LinesAvoided="0" />
-        <JoinPoint Advised="#25=M:[Troubleshooting.Calculator]Troubleshooting.Calculator.CalculatorService::get_Name()" Advising="#26=T:[PostSharp.Patterns.Threading]PostSharp.Patterns.Threading.DispatchedAttribute+DispatchedMethodAspect" Description="#27=Executes the method in the object thread" Ordinal="13" />
+        <JoinPoint Advised="#25=M:[Troubleshooting.Generator]Troubleshooting.Generator.GeneratorService::get_Name()" Advising="#26=T:[PostSharp.Patterns.Threading]PostSharp.Patterns.Threading.DispatchedAttribute+DispatchedMethodAspect" Description="#27=Executes the method in the object thread" Ordinal="13" />
       </Target>
     </Instance>
   </Class>

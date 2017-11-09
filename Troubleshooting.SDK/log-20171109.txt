@@ -1,0 +1,9 @@
+00:42:54.234 [Information] load-microservice: "Troubleshooting.Calculator" successfully added.
+00:42:54.367 [Fatal      ] kill-program: security violation detected.
+00:42:54.368 [Information] load-microservice: "Troubleshooting.Generator" successfully added.
+00:42:54.583 [Information] Loaded service: "CalculatorService"
+00:42:54.584 [Information] Loaded service: "GeneratorService"
+00:42:54.694 [Debug      ] hello {}
+00:42:54.703 [Information] Hello from the calculator!
+00:42:54.730 [Information] Hello from the generator!
+00:42:54.733 [Debug      ] You've now entered the main loop. Press CTRL+C or issue a cancel command to exit.
