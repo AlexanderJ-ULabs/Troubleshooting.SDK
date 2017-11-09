@@ -7,3 +7,13 @@
 00:42:54.703 [Information] Hello from the calculator!
 00:42:54.730 [Information] Hello from the generator!
 00:42:54.733 [Debug      ] You've now entered the main loop. Press CTRL+C or issue a cancel command to exit.
+00:43:42.928 [Information] load-microservice: "Troubleshooting.Calculator" successfully added.
+00:43:43.058 [Information] load-microservice: "Troubleshooting.Generator" successfully added.
+00:43:43.270 [Information] Loaded service: "CalculatorService"
+00:43:43.272 [Information] Loaded service: "GeneratorService"
+00:43:43.352 [Debug      ] hello {}
+00:43:43.359 [Information] Hello from the calculator!
+00:43:43.366 [Information] Hello from the generator!
+00:43:43.368 [Debug      ] You've now entered the main loop. Press CTRL+C or issue a cancel command to exit.
+00:43:48.367 [Debug      ] Calculator is still alive. {}
+00:43:48.376 [Debug      ] Generator is still alive. {}
