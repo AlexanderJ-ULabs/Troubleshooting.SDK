@@ -70,6 +70,7 @@ namespace Troubleshooting.SDK
 
             Console.WriteLine("hello-world: Troubleshooting.SDK entry-point reached.", Messaging.Info);
 
+            //  This method will actually hang until the quit event is fired.
             Initialize();
 
             Console.WriteLine("hello-world: Troubleshooting.SDK end-point reached.", Messaging.Info);
