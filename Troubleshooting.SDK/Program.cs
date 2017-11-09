@@ -64,6 +64,7 @@ namespace Troubleshooting.SDK
             Initialize();
 
             Console.WriteLine("hello-world: Troubleshooting.SDK end-point reached.", Messaging.Info);
+            ServiceProvider.Stop();
             Log.CloseAndFlush();
 
             Console.WriteLine("hello-world: Press any key to quit.", Messaging.Error);

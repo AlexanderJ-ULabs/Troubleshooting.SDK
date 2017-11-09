@@ -153,6 +153,11 @@ namespace Troubleshooting.SDK.Services
         private event Action<dynamic> MessageChain;
 
         /// <summary>
+        ///     This stores a reference to the message tracing delegate.
+        /// </summary>
+        private Action<dynamic> cachedHandler;
+
+        /// <summary>
         ///     Invokes the message chain with a message wrapped in potential actions.
         /// </summary>
         /// <param name="message">A dynamic message created by <see cref="ICoreService.CreateMessage"/> method.</param>
@@ -175,7 +180,9 @@ namespace Troubleshooting.SDK.Services
         /// </summary>
         private void EnableMessageTracing()
         {
-            this.MessageChain += this.LogMessage;
+            //  Store a reference to this delegate for removal later.
+            cachedHandler = (message) => this.LogMessage(message);
+            this.MessageChain += this.cachedHandler;
         }
 
         /// <summary>
@@ -183,7 +190,8 @@ namespace Troubleshooting.SDK.Services
         /// </summary>
         private void DisableMessageTracing()
         {
-            this.MessageChain -= this.LogMessage;
+            //  Remove using the handler as a reference to the original delegate.
+            this.MessageChain -= this.cachedHandler;
         }
 
         /// <summary>
