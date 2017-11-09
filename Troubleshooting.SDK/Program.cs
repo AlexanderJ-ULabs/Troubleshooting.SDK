@@ -24,8 +24,13 @@ using Troubleshooting.SDK.Services;
 
 namespace Troubleshooting.SDK
 {
+    /// <summary>
+    ///     This is a <see cref="Console"/> host which acts as an entry-point and REPL for services.
+    /// </summary>
     internal class Program
     {
+        #region Properties & Fields
+
         /// <summary>
         ///     This allows the application to indefinitely wait until exit is requested.
         /// </summary>
@@ -34,7 +39,7 @@ namespace Troubleshooting.SDK
         /// <summary>
         ///     Handles the loading of services and manages the Actor Model implementation.
         /// </summary>
-        private static Provider ServiceProvider { get; set; }        
+        private static Provider ServiceProvider { get; set; }
 
         /// <summary>
         ///     Stores the reference to the logger so that it may be passed to the service provider.
@@ -45,6 +50,10 @@ namespace Troubleshooting.SDK
         ///     Utilizing the Colorful Console package and this class to standardize message colors.
         /// </summary>
         private static readonly Colors Messaging = new Colors();
+
+        #endregion
+
+        #region Main
 
         /// <summary>
         ///     Entry point for the application, holding the original reference to service provider and logger.
@@ -70,6 +79,10 @@ namespace Troubleshooting.SDK
             Console.WriteLine("hello-world: Press any key to quit.", Messaging.Error);
             Console.ReadLine();
         }
+
+        #endregion
+
+        #region Static Initializers
 
         /// <summary>
         ///     Basic setup procedures to call a service provider and logger.
@@ -112,5 +125,7 @@ namespace Troubleshooting.SDK
                     outputTemplate: "{Timestamp:HH:mm:ss.fff} [{Level,-11}] {Message}{NewLine}{Exception}")
                 .CreateLogger();
         }
+
+        #endregion
     }
 }
