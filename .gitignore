@@ -190,7 +190,7 @@ ClientBin/
 *.dbmdl
 *.dbproj.schemaview
 *.jfm
-*.pfx
+#*.pfx #DO NOT NORMALLY DISABLE THIS. THIS IS BECAUSE IT IS A TEST PROJECT! :)
 *.publishsettings
 node_modules/
 orleans.codegen.cs
