@@ -26,6 +26,13 @@ using Troubleshooting.Common.Services;
 
 #endregion
 
+//
+//     This program is not using true async. The Actor Model prevents race conditions
+//     and guarantees thread safety by processing all messages concurrently. This
+//     allows us to maximize available CPU resources by assigning tasks to a pool of
+//     threads through PostSharp's implementaiton of the Actor Model.
+//     We do not need this warning.
+//
 #pragma warning disable 1998
 
 namespace Troubleshooting.Calculator
