@@ -122,3 +122,49 @@
 2017-11-08 21:28:24.966 -05:00 [Debug] hello {}
 2017-11-08 21:28:24.972 -05:00 [Information] Hello from the calculator!
 2017-11-08 21:28:24.974 -05:00 [Debug] You've now entered the main loop. Press CTRL+C or issue a cancel command to exit.
+2017-11-08 23:19:39.377 -05:00 [Information] load-microservice: "Troubleshooting.Calculator" successfully added.
+2017-11-08 23:19:39.731 -05:00 [Information] Loaded service: "CalculatorService"
+2017-11-08 23:19:39.833 -05:00 [Debug] hello {}
+2017-11-08 23:19:39.839 -05:00 [Information] Hello from the calculator!
+2017-11-08 23:19:39.843 -05:00 [Debug] You've now entered the main loop. Press CTRL+C or issue a cancel command to exit.
+2017-11-08 23:19:49.769 -05:00 [Information] load-microservice: "Troubleshooting.Calculator" successfully added.
+2017-11-08 23:19:50.055 -05:00 [Information] Loaded service: "CalculatorService"
+2017-11-08 23:19:50.129 -05:00 [Debug] hello {}
+2017-11-08 23:19:50.136 -05:00 [Information] Hello from the calculator!
+2017-11-08 23:19:50.139 -05:00 [Debug] You've now entered the main loop. Press CTRL+C or issue a cancel command to exit.
+2017-11-08 23:19:55.142 -05:00 [Debug] Calculator is still alive. {}
+23:22:14.312 [Information] load-microservice: "Troubleshooting.Calculator" successfully added.
+23:22:14.662 [Information] Loaded service: "CalculatorService"
+23:22:14.738 [Debug] hello {}
+23:22:14.745 [Information] Hello from the calculator!
+23:22:14.748 [Debug] You've now entered the main loop. Press CTRL+C or issue a cancel command to exit.
+23:22:19.750 [Debug] Calculator is still alive. {}
+[Information] load-microservice: "Troubleshooting.Calculator" successfully added.
+[Information] Loaded service: "CalculatorService"
+[Debug] hello {}
+[Information] Hello from the calculator!
+[Debug] You've now entered the main loop. Press CTRL+C or issue a cancel command to exit.
+23:23:38.386 [Information] load-microservice: "Troubleshooting.Calculator" successfully added.
+23:23:38.678 [Information] Loaded service: "CalculatorService"
+23:23:38.760 [Debug] hello {}
+23:23:38.767 [Information] Hello from the calculator!
+23:23:38.770 [Debug] You've now entered the main loop. Press CTRL+C or issue a cancel command to exit.
+23:23:43.772 [Debug] Calculator is still alive. {}
+23:27:03.331 [Information] load-microservice: "Troubleshooting.Calculator" successfully added.
+23:27:03.659 [Information] Loaded service: "CalculatorService"
+23:27:03.741 [Debug      ] hello {}
+23:27:03.749 [Information] Hello from the calculator!
+23:27:03.752 [Debug      ] You've now entered the main loop. Press CTRL+C or issue a cancel command to exit.
+23:27:08.755 [Debug      ] Calculator is still alive. {}
+23:27:22.120 [Information] load-microservice: "Troubleshooting.Calculator" successfully added.
+23:27:22.436 [Information] Loaded service: "CalculatorService"
+23:27:22.521 [Debug      ] hello {}
+23:27:22.528 [Information] Hello from the calculator!
+23:27:22.531 [Debug      ] You've now entered the main loop. Press CTRL+C or issue a cancel command to exit.
+23:27:27.533 [Debug      ] Calculator is still alive. {}
+23:27:59.083 [Information] load-microservice: "Troubleshooting.Calculator" successfully added.
+23:27:59.433 [Information] Loaded service: "CalculatorService"
+23:27:59.512 [Debug      ] hello {}
+23:27:59.518 [Information] Hello from the calculator!
+23:27:59.521 [Debug      ] You've now entered the main loop. Press CTRL+C or issue a cancel command to exit.
+23:28:04.523 [Debug      ] Calculator is still alive. {}

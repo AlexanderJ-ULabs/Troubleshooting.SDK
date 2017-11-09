@@ -66,7 +66,7 @@ namespace Troubleshooting.SDK
             Console.WriteLine("hello-world: Troubleshooting.SDK end-point reached.", Messaging.Info);
             Log.CloseAndFlush();
 
-            Console.WriteLine("hello-world: Press any key to quit.");
+            Console.WriteLine("hello-world: Press any key to quit.", Messaging.Error);
             Console.ReadLine();
         }
 
@@ -105,8 +105,10 @@ namespace Troubleshooting.SDK
         {
             return new LoggerConfiguration()
                 .MinimumLevel.Debug()
-                .WriteTo.LiterateConsole()
-                .WriteTo.RollingFile("log-{Date}.txt")
+                .WriteTo.LiterateConsole(
+                        outputTemplate: "{Timestamp:HH:mm:ss.fff} [{Level,-11}] {Message}{NewLine}{Exception}")
+                .WriteTo.RollingFile("log-{Date}.txt",
+                    outputTemplate: "{Timestamp:HH:mm:ss.fff} [{Level,-11}] {Message}{NewLine}{Exception}")
                 .CreateLogger();
         }
     }

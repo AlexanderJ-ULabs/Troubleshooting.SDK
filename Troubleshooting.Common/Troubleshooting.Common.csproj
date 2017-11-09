@@ -3,7 +3,7 @@
   <PropertyGroup>
     <TargetFramework>netcoreapp2.0</TargetFramework>
     <SignAssembly>true</SignAssembly>
-    <AssemblyOriginatorKeyFile>Troubleshooting.SNK.pfx</AssemblyOriginatorKeyFile>
+    <AssemblyOriginatorKeyFile>Troubleshooting.Key.pfx</AssemblyOriginatorKeyFile>
   </PropertyGroup>
 
   <ItemGroup>

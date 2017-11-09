@@ -46,7 +46,7 @@ namespace Troubleshooting.SDK.Services
         /// <summary>
         ///     The strong name key token identifying programs which are signed by us.
         /// </summary>
-        private static readonly byte[] OfficialKeyToken = {0xB2, 0x25, 0xB9, 0x3, 0x33, 0x57, 0x5A, 0xCD};
+        private static readonly byte[] OfficialKeyToken = { 0x2E, 0xC2, 0x5D, 0x45, 0x53, 0xBD, 0x53, 0xDF };
 
         /// <summary>
         ///     A list of all services located by this provider.
@@ -66,6 +66,15 @@ namespace Troubleshooting.SDK.Services
 
             // Enable message output to a console type host.
             EnableMessageTracing();
+        }
+
+        /// <summary>
+        ///     Issue stop procedures to services.
+        /// </summary>
+        internal void Stop()
+        {
+            //  Stop printing to the console.
+            this.DisableMessageTracing();
         }
 
         /// <summary>
