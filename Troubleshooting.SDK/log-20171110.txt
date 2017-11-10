@@ -9,3 +9,31 @@
 00:17:28.721 [Information] Hello from the decisions!
 00:17:28.723 [Information] Hello from the generator!
 00:17:28.726 [Debug      ] You've now entered the main loop. Press CTRL+C or issue a cancel command to exit.
+05:33:13.420 [Information] load-microservice: "Troubleshooting.Calculator" successfully added.
+05:33:13.550 [Information] load-microservice: "Troubleshooting.Decisions" successfully added.
+05:33:13.575 [Information] load-microservice: "Troubleshooting.Generator" successfully added.
+05:33:13.772 [Information] Loaded service: "CalculatorService"
+05:33:13.773 [Information] Loaded service: "DecisionsService"
+05:33:13.774 [Information] Loaded service: "GeneratorService"
+05:33:13.857 [Debug      ] hello {}
+05:33:13.864 [Information] Hello from the calculator!
+05:33:13.871 [Information] Hello from the decisions!
+05:33:13.873 [Information] Hello from the generator!
+05:33:13.875 [Debug      ] You've now entered the main loop. Press CTRL+C or issue a cancel command to exit.
+05:33:18.874 [Debug      ] Calculator is still alive. {}
+05:33:20.128 [Debug      ] Decisions is still alive. {}
+05:33:20.876 [Debug      ] Generator is still alive. {}
+14:38:45.982 [Information] load-microservice: "Troubleshooting.Calculator" successfully added.
+14:38:46.102 [Information] load-microservice: "Troubleshooting.Decisions" successfully added.
+14:38:46.114 [Information] load-microservice: "Troubleshooting.Generator" successfully added.
+14:38:46.346 [Information] Loaded service: "CalculatorService"
+14:38:46.348 [Information] Loaded service: "DecisionsService"
+14:38:46.349 [Information] Loaded service: "GeneratorService"
+14:38:46.435 [Debug      ] hello {}
+14:38:46.442 [Information] Hello from the calculator!
+14:38:46.448 [Information] Hello from the decisions!
+14:38:46.450 [Information] Hello from the generator!
+14:38:46.453 [Debug      ] You've now entered the main loop. Press CTRL+C or issue a cancel command to exit.
+14:38:51.449 [Debug      ] Calculator is still alive. {}
+14:38:52.703 [Debug      ] Decisions is still alive. {}
+14:38:53.454 [Debug      ] Generator is still alive. {}
