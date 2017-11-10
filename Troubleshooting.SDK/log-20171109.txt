@@ -17,3 +17,13 @@
 00:43:43.368 [Debug      ] You've now entered the main loop. Press CTRL+C or issue a cancel command to exit.
 00:43:48.367 [Debug      ] Calculator is still alive. {}
 00:43:48.376 [Debug      ] Generator is still alive. {}
+23:56:53.300 [Information] load-microservice: "Troubleshooting.Calculator" successfully added.
+23:56:53.427 [Information] load-microservice: "Troubleshooting.Generator" successfully added.
+23:56:53.673 [Information] Loaded service: "CalculatorService"
+23:56:53.675 [Information] Loaded service: "GeneratorService"
+23:56:53.764 [Debug      ] hello {}
+23:56:53.771 [Information] Hello from the calculator!
+23:56:53.778 [Information] Hello from the generator!
+23:56:53.780 [Debug      ] You've now entered the main loop. Press CTRL+C or issue a cancel command to exit.
+23:56:58.781 [Debug      ] Calculator is still alive. {}
+23:57:00.782 [Debug      ] Generator is still alive. {}
