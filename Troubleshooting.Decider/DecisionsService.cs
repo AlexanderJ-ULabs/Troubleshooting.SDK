@@ -13,7 +13,7 @@
 using System;
 using System.Composition;
 using System.Threading.Tasks;
-
+using PostSharp.Extensibility;
 using PostSharp.Patterns.Diagnostics;
 using PostSharp.Patterns.Model;
 using PostSharp.Patterns.Threading;
@@ -36,14 +36,16 @@ using Troubleshooting.Common.Services;
 #endregion
 #pragma warning disable 1998
 
-namespace Troubleshooting.Generator
+namespace Troubleshooting.Decisions
 {
     /// <summary>
-    ///     This service exists to generate random integers and send them out to other actors.
+    ///     This service exists to generate random computation operations of the types:
+    ///     ADD, SUB, MUL, DIV.
+    ///     These are then sent out to the other actors.
     /// </summary>
-    [Export(typeof(IService))]
+    [Export(typeof(Common.Services.IService))]
     [Actor]
-    public class GeneratorService : IService
+    public class DecisionsService : Common.Services.IService
     {
         #region Properties & Fields
 
@@ -59,7 +61,7 @@ namespace Troubleshooting.Generator
         [Reference] private ILogger log { get; set; }
 
         /// <inheritdoc />
-        public string Name => "GeneratorService";
+        public string Name => "DecisionsService";
 
         #endregion
 
@@ -83,7 +85,7 @@ namespace Troubleshooting.Generator
             switch (message.Topic)
             {
                 case Topics.Hello:
-                    log.Information("Hello from the generator!");
+                    log.Information("Hello from the decisions!");
                     this.TestRefresh();
 
                     break;
@@ -99,8 +101,8 @@ namespace Troubleshooting.Generator
         /// </summary>
         private async void TestRefresh()
         {
-            await Task.Delay(7000);
-            var msg = this.provider.CreateMessage("Generator is still alive.");
+            await Task.Delay(6250);
+            var msg = this.provider.CreateMessage("Decisions is still alive.");
             await this.provider.PostMessage(msg);
         }
 
