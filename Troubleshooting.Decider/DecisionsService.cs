@@ -10,30 +10,27 @@
 
 #region using
 
-using System;
 using System.Composition;
 using System.Threading.Tasks;
-using PostSharp.Extensibility;
-using PostSharp.Patterns.Diagnostics;
 using PostSharp.Patterns.Model;
 using PostSharp.Patterns.Threading;
-
 using Serilog;
-
-using Troubleshooting.Common;
 using Troubleshooting.Common.Messaging;
 using Troubleshooting.Common.Services;
 
 #endregion
 
 #region Warning Explanation
+
 //     This program is not using true async. The Actor Model prevents race conditions
 //     and guarantees thread safety by processing all messages concurrently. This
 //     allows us to maximize available CPU resources by assigning tasks to a pool of
 //     threads through PostSharp's implementaiton of the Actor Model.
 //     We do not need this warning.
 //
+
 #endregion
+
 #pragma warning disable 1998
 
 namespace Troubleshooting.Decisions
@@ -43,22 +40,36 @@ namespace Troubleshooting.Decisions
     ///     ADD, SUB, MUL, DIV.
     ///     These are then sent out to the other actors.
     /// </summary>
-    [Export(typeof(Common.Services.IService))]
+    [Export(typeof(IService))]
     [Actor]
-    public class DecisionsService : Common.Services.IService
+    public class DecisionsService : IService
     {
+        #region Private Methods
+
+        /// <summary>
+        ///     Just a method to make sure that the main loop is working.
+        /// </summary>
+        private async void TestRefresh()
+        {
+            await Task.Delay(6250);
+            var msg = provider.CreateMessage("Decisions is still alive.");
+            await provider.PostMessage(msg);
+        }
+
+        #endregion
+
         #region Properties & Fields
 
         /// <summary>
         ///     Private reference back to the service provider.
         /// </summary>
-        [Reference]
-        private ICoreService provider;
+        [Reference] private ICoreService provider;
 
         /// <summary>
         ///     Private reference back to the logger.
         /// </summary>
-        [Reference] private ILogger log { get; set; }
+        [Reference]
+        private ILogger log { get; set; }
 
         /// <inheritdoc />
         public string Name => "DecisionsService";
@@ -71,9 +82,9 @@ namespace Troubleshooting.Decisions
         [Reentrant]
         public async Task<bool> Initialize(ICoreService core)
         {
-            this.provider = core;
+            provider = core;
 
-            this.log = core.Logger;
+            log = core.Logger;
 
             return true;
         }
@@ -86,24 +97,10 @@ namespace Troubleshooting.Decisions
             {
                 case Topics.Hello:
                     log.Information("Hello from the decisions!");
-                    this.TestRefresh();
+                    TestRefresh();
 
                     break;
             }
-        }
-
-        #endregion
-
-        #region Private Methods
-
-        /// <summary>
-        ///     Just a method to make sure that the main loop is working.
-        /// </summary>
-        private async void TestRefresh()
-        {
-            await Task.Delay(6250);
-            var msg = this.provider.CreateMessage("Decisions is still alive.");
-            await this.provider.PostMessage(msg);
         }
 
         #endregion

@@ -7,6 +7,5 @@ namespace Troubleshooting.Calculator
 {
     public class GlobalAspects
     {
-        
     }
 }

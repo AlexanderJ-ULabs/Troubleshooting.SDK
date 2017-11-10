@@ -19,16 +19,16 @@ namespace Troubleshooting.Common.Services
     public interface IService
     {
         /// <summary>
+        ///     Identifies the service.
+        /// </summary>
+        string Name { get; }
+
+        /// <summary>
         ///     Kicks off initialization and setup procedures for a service after it has been loaded.
         /// </summary>
         /// <param name="core"></param>
         /// <returns></returns>
         Task<bool> Initialize(ICoreService core);
-
-        /// <summary>
-        ///     Identifies the service.
-        /// </summary>
-        string Name { get; }
 
         /// <summary>
         ///     Allows the service to participate as an Actor to receive messages from other services.

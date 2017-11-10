@@ -20,6 +20,11 @@ namespace Troubleshooting.Common.Services
     public interface ICoreService
     {
         /// <summary>
+        ///     Holds a reference to the logger from the program entry point.
+        /// </summary>
+        ILogger Logger { get; set; }
+
+        /// <summary>
         ///     Creates a message to be sent out to Actors.
         /// </summary>
         /// <param name="topic"></param>
@@ -32,10 +37,5 @@ namespace Troubleshooting.Common.Services
         /// <param name="message"></param>
         /// <returns></returns>
         Task PostMessage(dynamic message);
-
-        /// <summary>
-        ///     Holds a reference to the logger from the program entry point.
-        /// </summary>
-        ILogger Logger { get; set; }
     }
 }

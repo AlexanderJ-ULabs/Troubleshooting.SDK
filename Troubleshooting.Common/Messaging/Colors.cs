@@ -21,12 +21,12 @@ namespace Troubleshooting.Common.Messaging
     /// </summary>
     public class Colors
     {
+        public Color Error = Color.FromArgb(216, 80, 80);
+
         public Color Info = Color.PaleGreen;
 
         public Color Processing = Color.AliceBlue;
 
         public Color Warning = Color.Goldenrod;
-
-        public Color Error = Color.FromArgb(216, 80, 80);
     }
 }

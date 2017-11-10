@@ -10,17 +10,11 @@
 
 #region using
 
-using System;
 using System.Composition;
 using System.Threading.Tasks;
-
-using PostSharp.Patterns.Diagnostics;
 using PostSharp.Patterns.Model;
 using PostSharp.Patterns.Threading;
-
 using Serilog;
-
-using Troubleshooting.Common;
 using Troubleshooting.Common.Messaging;
 using Troubleshooting.Common.Services;
 
@@ -35,6 +29,7 @@ using Troubleshooting.Common.Services;
 //     We do not need this warning.
 
 #endregion
+
 #pragma warning disable 1998
 
 namespace Troubleshooting.Calculator
@@ -46,18 +41,32 @@ namespace Troubleshooting.Calculator
     [Actor]
     public class CalculatorService : IService
     {
+        #region Private Methods
+
+        /// <summary>
+        ///     Just a method to make sure that the main loop is working.
+        /// </summary>
+        private async void TestRefresh()
+        {
+            await Task.Delay(5000);
+            var msg = provider.CreateMessage("Calculator is still alive.");
+            await provider.PostMessage(msg);
+        }
+
+        #endregion
+
         #region Properties & Fields
 
         /// <summary>
         ///     Private reference back to the service provider.
         /// </summary>
-        [Reference]
-        private ICoreService provider;
+        [Reference] private ICoreService provider;
 
         /// <summary>
         ///     Private reference back to the logger.
         /// </summary>
-        [Reference] private ILogger log { get; set; }
+        [Reference]
+        private ILogger log { get; set; }
 
         /// <inheritdoc />
         public string Name => "CalculatorService";
@@ -70,9 +79,9 @@ namespace Troubleshooting.Calculator
         [Reentrant]
         public async Task<bool> Initialize(ICoreService core)
         {
-            this.provider = core;
+            provider = core;
 
-            this.log = core.Logger;
+            log = core.Logger;
 
             return true;
         }
@@ -85,24 +94,10 @@ namespace Troubleshooting.Calculator
             {
                 case Topics.Hello:
                     log.Information("Hello from the calculator!");
-                    this.TestRefresh();
+                    TestRefresh();
 
                     break;
             }
-        }
-
-        #endregion
-
-        #region Private Methods
-
-        /// <summary>
-        ///     Just a method to make sure that the main loop is working.
-        /// </summary>
-        private async void TestRefresh()
-        {
-            await Task.Delay(5000);
-            var msg = this.provider.CreateMessage("Calculator is still alive.");
-            await this.provider.PostMessage(msg);
         }
 
         #endregion

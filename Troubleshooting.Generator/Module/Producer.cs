@@ -8,6 +8,5 @@
     /// </summary>
     internal class Producer
     {
-        
     }
 }

@@ -7,6 +7,5 @@ namespace Troubleshooting.Decisions
 {
     public class GlobalAspects
     {
-        
     }
 }
