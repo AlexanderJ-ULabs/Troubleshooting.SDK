@@ -5,12 +5,12 @@
   <Evolution Source="#4=F:[Troubleshooting.Generator]Troubleshooting.Generator.GeneratorService::&lt;log&gt;k__BackingField" Target="#5=F:[Troubleshooting.Generator]Troubleshooting.Generator.GeneratorService::&lt;log&gt;k__OriginalField" />
   <Evolution Source="#5" Target="#6=P:[Troubleshooting.Generator]Troubleshooting.Generator.GeneratorService::{log}k__BackingField()" />
   <Class Class="#7=T:[PostSharp.Patterns.Threading]PostSharp.Patterns.Threading.DeadlockDetectionPolicy">
-    <Instance Declaration="#8=A:Troubleshooting.Generator" Id="974e0ef1431c5c4b">
+    <Instance Declaration="#8=A:Troubleshooting.Generator" Id="974e0ef10d972672">
       <Target />
     </Instance>
   </Class>
   <Class Class="#9=T:[PostSharp.Patterns.Threading]PostSharp.Patterns.Threading.ActorAttribute">
-    <Instance Declaration="#10=T:[Troubleshooting.Generator]Troubleshooting.Generator.GeneratorService" Id="974e0ef1fa4936ec">
+    <Instance Declaration="#10=T:[Troubleshooting.Generator]Troubleshooting.Generator.GeneratorService" Id="974e0ef13df005d1">
       <Target>
         <JoinPoint Advising="#9" Description="#11=Overrides method OnChildAttached" Ordinal="8" LinesAvoided="0" />
         <JoinPoint Advising="#9" Description="#12=Introduces method __GetThreadAwareImpl" Ordinal="9" LinesAvoided="0" />

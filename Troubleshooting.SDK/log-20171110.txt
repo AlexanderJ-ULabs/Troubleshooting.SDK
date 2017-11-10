@@ -1,0 +1,11 @@
+00:17:28.197 [Information] load-microservice: "Troubleshooting.Calculator" successfully added.
+00:17:28.337 [Information] load-microservice: "Troubleshooting.Decisions" successfully added.
+00:17:28.368 [Information] load-microservice: "Troubleshooting.Generator" successfully added.
+00:17:28.605 [Information] Loaded service: "CalculatorService"
+00:17:28.607 [Information] Loaded service: "DecisionsService"
+00:17:28.608 [Information] Loaded service: "GeneratorService"
+00:17:28.705 [Debug      ] hello {}
+00:17:28.714 [Information] Hello from the calculator!
+00:17:28.721 [Information] Hello from the decisions!
+00:17:28.723 [Information] Hello from the generator!
+00:17:28.726 [Debug      ] You've now entered the main loop. Press CTRL+C or issue a cancel command to exit.
