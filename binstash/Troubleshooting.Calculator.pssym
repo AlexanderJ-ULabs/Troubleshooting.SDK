@@ -5,12 +5,12 @@
   <Evolution Source="#4=F:[Troubleshooting.Calculator]Troubleshooting.Calculator.CalculatorService::&lt;log&gt;k__BackingField" Target="#5=F:[Troubleshooting.Calculator]Troubleshooting.Calculator.CalculatorService::&lt;log&gt;k__OriginalField" />
   <Evolution Source="#5" Target="#6=P:[Troubleshooting.Calculator]Troubleshooting.Calculator.CalculatorService::{log}k__BackingField()" />
   <Class Class="#7=T:[PostSharp.Patterns.Threading]PostSharp.Patterns.Threading.DeadlockDetectionPolicy">
-    <Instance Declaration="#8=A:Troubleshooting.Calculator" Id="df83f647ffb848d8">
+    <Instance Declaration="#8=A:Troubleshooting.Calculator" Id="df83f6479530ff29">
       <Target />
     </Instance>
   </Class>
   <Class Class="#9=T:[PostSharp.Patterns.Threading]PostSharp.Patterns.Threading.ActorAttribute">
-    <Instance Declaration="#10=T:[Troubleshooting.Calculator]Troubleshooting.Calculator.CalculatorService" Id="df83f647684df7db">
+    <Instance Declaration="#10=T:[Troubleshooting.Calculator]Troubleshooting.Calculator.CalculatorService" Id="df83f647a4ee3ad2">
       <Target>
         <JoinPoint Advising="#9" Description="#11=Overrides method OnChildAttached" Ordinal="8" LinesAvoided="0" />
         <JoinPoint Advising="#9" Description="#12=Introduces method __GetThreadAwareImpl" Ordinal="9" LinesAvoided="0" />
